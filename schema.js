@@ -27,7 +27,7 @@ const RocketType = new GraphQLObjectType({
   fields: () => ({
     rocket_id: { type: GraphQLString },
     rocket_name: { type: GraphQLString },
-    tocket_type: { type: GraphQLString },
+    rocket_type: { type: GraphQLString },
   }),
 });
 
