@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  client:
+    stdin_open: true
+    restart: on-failure
+    container_name: graphql-react-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    depends_on:
+      - server
+  server:
+    restart: always
+    container_name: graphql-express-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    
